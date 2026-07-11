@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Capture Websites</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="themes.css">
+    <link rel="stylesheet" href="welcome.css">
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="container">
+        <!-- Navigation Dots for context -->
+        <div class="stepper">
+            <div class="step active" data-step="1"></div>
+            <div class="step" data-step="2"></div>
+            <div class="step" data-step="3"></div>
+        </div>
+
+        <!-- Section 1: Welcome -->
+        <section id="section-1" class="active-section">
+            <div class="content-card glass-panel">
+                <h1 class="animate-fade-up" data-i18n="welcomeTitle">Welcome to Capture Websites</h1>
+                <p class="animate-fade-up delay-1" data-i18n="welcomeMsg">Thank you for installing! We are thrilled to
+                    have you on board.</p>
+                <div class="hero-graphic animate-scale-up delay-2">
+                    <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                        stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                </div>
+                <p class="animate-fade-up delay-3" data-i18n="welcomeSub">Your new productivity superpower for managing
+                    web links starts here.</p>
+                <button class="btn-primary animate-fade-up delay-4" id="btn-next-1" data-i18n="btnGetStarted">Get
+                    Started</button>
+            </div>
+        </section>
+
+        <!-- Section 2: Questions / FAQ -->
+        <section id="section-2" class="hidden-section">
+            <div class="content-card glass-panel">
+                <h2 data-i18n="questionsTitle">Questions & Guidelines</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <h3><span class="icon">?</span> <span data-i18n="q1">What does this extension do?</span></h3>
+                        <p data-i18n="a1">It captures website links instantly and organizes them for quick access using
+                            domain names.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3><span class="icon">⚡</span> <span data-i18n="q2">How do I use it?</span></h3>
+                        <p data-i18n="a2">Simply click the extension icon anytime you find a page you want to keep.
+                            We'll handle the rest.</p>
+                    </div>
+                </div>
+                <div class="navigation-buttons">
+                    <button class="btn-secondary" id="btn-back-2" data-i18n="btnBack">Back</button>
+                    <button class="btn-primary" id="btn-next-2" data-i18n="btnNextGuide">Next: The Guide</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: The Guide -->
+        <section id="section-3" class="hidden-section">
+            <div class="content-card glass-panel">
+                <h2 data-i18n="guideTitle">Quick Start Guide</h2>
+                <div class="guide-steps">
+                    <div class="guide-step">
+                        <div class="step-number">1</div>
+                        <div class="step-text" data-i18n="step1">Visit any website you love.</div>
+                    </div>
+                    <div class="guide-step">
+                        <div class="step-number">2</div>
+                        <div class="step-text" data-i18n="step2">Click the Capture Websites icon in your toolbar.</div>
+                    </div>
+                    <div class="guide-step">
+                        <div class="step-number">3</div>
+                        <div class="step-text" data-i18n="step3">Save it with a single click and access it later!</div>
+                    </div>
+                </div>
+                <div class="navigation-buttons">
+                    <button class="btn-secondary" id="btn-back-3" data-i18n="btnBack">Back</button>
+                    <button class="btn-primary" id="btn-finish" data-i18n="btnFinish">Open Homepage</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="theme_manager.js"></script>
+    <script src="i18n.js"></script>
+    <script src="welcome.js"></script>
+</body>
+
+</html>

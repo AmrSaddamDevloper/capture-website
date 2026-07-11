@@ -1,0 +1,89 @@
+/* RTL Support - v5.4 */
+body.rtl {
+    direction: rtl;
+    text-align: right;
+    font-family: 'Tahoma', 'Arial', sans-serif;
+}
+
+body.rtl .cat-chip {
+    margin-right: 0;
+    margin-left: 10px;
+}
+
+body.rtl .site-info {
+    text-align: right;
+}
+
+body.rtl .modal-actions {
+    justify-content: flex-start;
+}
+
+body.rtl .app-header {
+    flex-direction: row;
+}
+
+body.rtl .search-icon {
+    margin-right: 0;
+    margin-left: 10px;
+}
+
+body.rtl .fab-btn {
+    right: auto;
+    left: 20px;
+}
+
+body.rtl .card-actions {
+    transform: translateX(-8px);
+}
+
+body.rtl .site-card:hover .card-actions {
+    transform: translateX(0);
+}
+
+body.rtl .site-domain {
+    flex-direction: row-reverse;
+}
+
+body.rtl .form-group label {
+    flex-direction: row-reverse;
+}
+
+body.rtl .image-upload-area {
+    flex-direction: row-reverse;
+}
+
+body.rtl .stat-chip {
+    flex-direction: row-reverse;
+}
+
+body.rtl .top-site-chip {
+    flex-direction: row-reverse;
+}
+
+body.rtl .confirm-actions {
+    flex-direction: row-reverse;
+}
+
+body.rtl .sections-bar {
+    flex-direction: row-reverse;
+}
+
+body.rtl .section-chip {
+    flex-direction: row-reverse;
+}
+
+body.rtl .breadcrumb-bar {
+    flex-direction: row-reverse;
+}
+
+body.rtl .breadcrumb-item {
+    flex-direction: row-reverse;
+}
+
+body.rtl .form-row {
+    flex-direction: row-reverse;
+}
+
+body.rtl .changelog-item {
+    flex-direction: row-reverse;
+}

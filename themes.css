@@ -1,0 +1,351 @@
+/* themes.css - v5.2 MEGA UPGRADE */
+
+/* Base Variables (Default Theme - Midnight Blue) */
+:root {
+    --bg-color: #0f172a;
+    --card-bg: rgba(30, 41, 59, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-bg: rgba(15, 23, 42, 0.6);
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+
+    --accent-color: #3b82f6;
+    --accent-hover: #2563eb;
+    --accent-glow: rgba(59, 130, 246, 0.35);
+    --danger-color: #ef4444;
+    --success-color: #22c55e;
+
+    --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+    /* Gradients */
+    --bg-gradient-1: rgba(59, 130, 246, 0.08);
+    --bg-gradient-2: rgba(236, 72, 153, 0.08);
+
+    /* Background decorative blobs */
+    --blob-color-1: rgba(59, 130, 246, 0.12);
+    --blob-color-2: rgba(168, 85, 247, 0.10);
+
+    --animation-speed: 0.3s;
+}
+
+/* ========== THEME 1: Red & Blue ========== */
+[data-theme="red-blue"] {
+    --bg-color: #0b1120;
+    --card-bg: rgba(20, 30, 50, 0.7);
+    --accent-color: #ef4444;
+    --accent-hover: #dc2626;
+    --accent-glow: rgba(239, 68, 68, 0.35);
+    --bg-gradient-1: rgba(239, 68, 68, 0.1);
+    --bg-gradient-2: rgba(59, 130, 246, 0.1);
+    --blob-color-1: rgba(239, 68, 68, 0.12);
+    --blob-color-2: rgba(59, 130, 246, 0.10);
+}
+
+/* ========== THEME 2: Green & Orange ========== */
+[data-theme="green-orange"] {
+    --bg-color: #0c1a15;
+    --card-bg: rgba(20, 50, 40, 0.6);
+    --accent-color: #10b981;
+    --accent-hover: #059669;
+    --accent-glow: rgba(16, 185, 129, 0.35);
+    --bg-gradient-1: rgba(16, 185, 129, 0.1);
+    --bg-gradient-2: rgba(249, 115, 22, 0.1);
+    --blob-color-1: rgba(16, 185, 129, 0.12);
+    --blob-color-2: rgba(249, 115, 22, 0.10);
+}
+
+/* ========== THEME 3: Aurora Borealis ========== */
+[data-theme="aurora"] {
+    --bg-color: #0a0f1e;
+    --card-bg: rgba(10, 25, 50, 0.65);
+    --glass-border: rgba(100, 255, 218, 0.08);
+    --accent-color: #64ffda;
+    --accent-hover: #4fd1c5;
+    --accent-glow: rgba(100, 255, 218, 0.3);
+    --bg-gradient-1: rgba(100, 255, 218, 0.07);
+    --bg-gradient-2: rgba(130, 80, 223, 0.08);
+    --blob-color-1: rgba(100, 255, 218, 0.1);
+    --blob-color-2: rgba(130, 80, 223, 0.12);
+    --text-primary: #e6fff9;
+}
+
+/* ========== THEME 4: Sunset Coral ========== */
+[data-theme="sunset"] {
+    --bg-color: #1a0a1e;
+    --card-bg: rgba(50, 20, 45, 0.6);
+    --glass-border: rgba(255, 120, 100, 0.1);
+    --accent-color: #ff6b6b;
+    --accent-hover: #ee5a5a;
+    --accent-glow: rgba(255, 107, 107, 0.35);
+    --bg-gradient-1: rgba(255, 107, 107, 0.08);
+    --bg-gradient-2: rgba(255, 170, 79, 0.08);
+    --blob-color-1: rgba(255, 107, 107, 0.12);
+    --blob-color-2: rgba(255, 170, 79, 0.10);
+}
+
+/* ========== THEME 5: Cyber Neon ========== */
+[data-theme="cyber"] {
+    --bg-color: #0d0d1a;
+    --card-bg: rgba(15, 15, 35, 0.75);
+    --glass-border: rgba(0, 255, 136, 0.08);
+    --accent-color: #00ff88;
+    --accent-hover: #00dd77;
+    --accent-glow: rgba(0, 255, 136, 0.3);
+    --bg-gradient-1: rgba(0, 255, 136, 0.06);
+    --bg-gradient-2: rgba(0, 200, 255, 0.06);
+    --blob-color-1: rgba(0, 255, 136, 0.1);
+    --blob-color-2: rgba(0, 200, 255, 0.08);
+    --text-primary: #e0ffe8;
+}
+
+/* ========== THEME 6: Royal Purple ========== */
+[data-theme="royal"] {
+    --bg-color: #120b20;
+    --card-bg: rgba(30, 15, 55, 0.65);
+    --glass-border: rgba(167, 139, 250, 0.1);
+    --accent-color: #a78bfa;
+    --accent-hover: #8b5cf6;
+    --accent-glow: rgba(167, 139, 250, 0.35);
+    --bg-gradient-1: rgba(167, 139, 250, 0.08);
+    --bg-gradient-2: rgba(236, 72, 153, 0.06);
+    --blob-color-1: rgba(167, 139, 250, 0.12);
+    --blob-color-2: rgba(219, 39, 119, 0.08);
+}
+
+/* ========== THEME 7: Ocean Depth ========== */
+[data-theme="ocean"] {
+    --bg-color: #041322;
+    --card-bg: rgba(5, 30, 55, 0.65);
+    --glass-border: rgba(56, 189, 248, 0.08);
+    --accent-color: #38bdf8;
+    --accent-hover: #0ea5e9;
+    --accent-glow: rgba(56, 189, 248, 0.35);
+    --bg-gradient-1: rgba(56, 189, 248, 0.08);
+    --bg-gradient-2: rgba(6, 182, 212, 0.06);
+    --blob-color-1: rgba(56, 189, 248, 0.1);
+    --blob-color-2: rgba(6, 182, 212, 0.1);
+}
+
+/* ========== THEME 8: Rose Gold ========== */
+[data-theme="rosegold"] {
+    --bg-color: #1a0f14;
+    --card-bg: rgba(45, 20, 30, 0.65);
+    --glass-border: rgba(251, 146, 168, 0.1);
+    --accent-color: #fb7185;
+    --accent-hover: #f43f5e;
+    --accent-glow: rgba(251, 113, 133, 0.35);
+    --bg-gradient-1: rgba(251, 113, 133, 0.08);
+    --bg-gradient-2: rgba(244, 114, 182, 0.06);
+    --blob-color-1: rgba(251, 113, 133, 0.12);
+    --blob-color-2: rgba(217, 70, 239, 0.08);
+}
+
+/* ========== THEME 9: Emerald Night ========== */
+[data-theme="emerald"] {
+    --bg-color: #052e16;
+    --card-bg: rgba(10, 50, 30, 0.65);
+    --glass-border: rgba(52, 211, 153, 0.1);
+    --accent-color: #34d399;
+    --accent-hover: #10b981;
+    --accent-glow: rgba(52, 211, 153, 0.35);
+    --bg-gradient-1: rgba(52, 211, 153, 0.08);
+    --bg-gradient-2: rgba(163, 230, 53, 0.05);
+    --blob-color-1: rgba(52, 211, 153, 0.12);
+    --blob-color-2: rgba(163, 230, 53, 0.08);
+}
+
+/* ========== THEME 10: Amber Flame ========== */
+[data-theme="amber"] {
+    --bg-color: #1c0f00;
+    --card-bg: rgba(50, 30, 10, 0.65);
+    --glass-border: rgba(251, 191, 36, 0.1);
+    --accent-color: #fbbf24;
+    --accent-hover: #f59e0b;
+    --accent-glow: rgba(251, 191, 36, 0.35);
+    --bg-gradient-1: rgba(251, 191, 36, 0.08);
+    --bg-gradient-2: rgba(245, 158, 11, 0.06);
+    --blob-color-1: rgba(251, 191, 36, 0.12);
+    --blob-color-2: rgba(234, 88, 12, 0.10);
+    --text-primary: #fffbeb;
+}
+
+/* ========== THEME 11: Frost Ice ========== */
+[data-theme="frost"] {
+    --bg-color: #0c1929;
+    --card-bg: rgba(15, 35, 60, 0.6);
+    --glass-border: rgba(186, 230, 253, 0.1);
+    --accent-color: #7dd3fc;
+    --accent-hover: #38bdf8;
+    --accent-glow: rgba(125, 211, 252, 0.3);
+    --bg-gradient-1: rgba(125, 211, 252, 0.07);
+    --bg-gradient-2: rgba(199, 210, 254, 0.06);
+    --blob-color-1: rgba(125, 211, 252, 0.1);
+    --blob-color-2: rgba(199, 210, 254, 0.1);
+}
+
+/* ========== THEME 12: Volcanic ========== */
+[data-theme="volcanic"] {
+    --bg-color: #1a0800;
+    --card-bg: rgba(50, 15, 5, 0.7);
+    --glass-border: rgba(249, 115, 22, 0.1);
+    --accent-color: #f97316;
+    --accent-hover: #ea580c;
+    --accent-glow: rgba(249, 115, 22, 0.4);
+    --bg-gradient-1: rgba(249, 115, 22, 0.08);
+    --bg-gradient-2: rgba(239, 68, 68, 0.06);
+    --blob-color-1: rgba(249, 115, 22, 0.15);
+    --blob-color-2: rgba(239, 68, 68, 0.10);
+    --text-primary: #fff7ed;
+}
+
+/* ============ COMMON ANIMATIONS ============ */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 10px var(--accent-glow);
+    }
+
+    50% {
+        box-shadow: 0 0 25px var(--accent-glow), 0 0 50px var(--accent-glow);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes blob-morph {
+
+    0%,
+    100% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+
+    25% {
+        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    }
+
+    50% {
+        border-radius: 50% 60% 30% 60% / 30% 50% 70% 60%;
+    }
+
+    75% {
+        border-radius: 60% 30% 50% 40% / 70% 40% 60% 30%;
+    }
+}
+
+/* Global utility classes */
+.animate-slide-up {
+    animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-down {
+    animation: slideDown 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+.animate-scale-in {
+    animation: scaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Performance: Use GPU-accelerated properties */
+.gpu-accelerated {
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+}

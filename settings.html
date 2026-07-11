@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capture Websites - Settings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="themes.css">
+    <link rel="stylesheet" href="settings.css">
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="settings-container">
+        <!-- Sidebar -->
+        <aside class="sidebar glass-panel">
+            <div class="logo-area">
+                <div class="logo-icon-box">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="currentColor" />
+                    </svg>
+                </div>
+                <span data-i18n="settingsTitle">Settings</span>
+            </div>
+            <nav class="nav-menu">
+                <button class="nav-item active" data-tab="general">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+                        <circle cx="12" cy="12" r="3" />
+                    </svg>
+                    <span data-i18n="navGeneral">General</span>
+                </button>
+                <button class="nav-item" data-tab="themes">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="13.5" cy="6.5" r="2.5" />
+                        <circle cx="17.5" cy="10.5" r="2.5" />
+                        <circle cx="8.5" cy="7.5" r="2.5" />
+                        <circle cx="6.5" cy="12.5" r="2.5" />
+                        <path
+                            d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z" />
+                    </svg>
+                    <span data-i18n="navThemes">Themes</span>
+                </button>
+                <button class="nav-item" data-tab="languages">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M2 12h20" />
+                        <path
+                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                    </svg>
+                    <span data-i18n="navLanguages">Languages</span>
+                </button>
+                <button class="nav-item" data-tab="support">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                    </svg>
+                    <span data-i18n="navSupport">Support</span>
+                </button>
+                <button class="nav-item" data-tab="faq">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                    </svg>
+                    <span data-i18n="navFAQ">FAQ</span>
+                </button>
+                <button class="nav-item" data-tab="donation">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                    </svg>
+                    <span data-i18n="navDonation">Donation</span>
+                </button>
+                <button class="nav-item" data-tab="whatsnew">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 20h9" />
+                        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+                    </svg>
+                    <span data-i18n="navWhatsNew">What's New</span>
+                </button>
+
+                <button class="nav-item" data-tab="broken-links">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                        <line x1="2" y1="2" x2="22" y2="22" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+                    </svg>
+                    <span data-i18n="navBrokenLinks">🔗 Broken Links</span>
+                </button>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content-area glass-panel">
+
+            <!-- General Section -->
+            <section id="general" class="tab-content active">
+                <h2 data-i18n="generalTitle">General Settings</h2>
+                <div class="setting-group">
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h3 data-i18n="autoCaptureTitle">Auto-Capture Mode</h3>
+                            <p data-i18n="autoCaptureDesc">Automatically save visited pages (Experimental).</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="setting-autocapture">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h3 data-i18n="notificationsTitle">Notifications</h3>
+                            <p data-i18n="notificationsDesc">Show specific notifications when saving.</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="setting-notifications" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h3 data-i18n="clipperSettingsTitle">Web Clipper</h3>
+                            <p data-i18n="clipperEnabledDesc">Show the clip toolbar when selecting text on web pages.</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="setting-clipper-enabled">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Stats Summary -->
+                <div class="setting-group">
+                    <h3 style="margin-bottom: 15px;">📊 Statistics</h3>
+                    <div class="stats-summary-grid" id="stats-summary">
+                        <div class="stats-summary-card">
+                            <div class="stats-summary-value" id="setting-stat-total">0</div>
+                            <div class="stats-summary-label">Total Sites</div>
+                        </div>
+                        <div class="stats-summary-card">
+                            <div class="stats-summary-value" id="setting-stat-cats">0</div>
+                            <div class="stats-summary-label">Categories</div>
+                        </div>
+                        <div class="stats-summary-card">
+                            <div class="stats-summary-value" id="setting-stat-visits">0</div>
+                            <div class="stats-summary-label">Total Visits</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Themes Section (Separated and Expanded) -->
+            <section id="themes" class="tab-content">
+                <h2 data-i18n="themeTitle">Themes</h2>
+                <p class="section-desc">Choose a visual theme that matches your style. Each theme changes colors and
+                    ambient effects.</p>
+                <div class="theme-selector-grid">
+                    <div class="theme-card active" data-theme-id="default">
+                        <div class="theme-preview default-preview"></div>
+                        <span data-i18n="themeDefault">Midnight Blue</span>
+                    </div>
+                    <div class="theme-card" data-theme-id="red-blue">
+                        <div class="theme-preview red-blue-preview"></div>
+                        <span data-i18n="themeRedBlue">Red & Blue</span>
+                    </div>
+                    <div class="theme-card" data-theme-id="green-orange">
+                        <div class="theme-preview green-orange-preview"></div>
+                        <span data-i18n="themeGreenOrange">Green & Orange</span>
+                    </div>
+                    <div class="theme-card" data-theme-id="aurora">
+                        <div class="theme-preview aurora-preview"></div>
+                        <span>Aurora Borealis</span>
+                    </div>
+                    <div class="theme-card" data-theme-id="sunset">
+                        <div class="theme-preview sunset-preview"></div>
+                        <span>Sunset Coral</span>
+                    </div>
+                    <div class="theme-card" data-theme-id="cyber">
+                        <div class="theme-preview cyber-preview"></div>
+                        <span>Cyber Neon</span>
+                    </div>
+                    <div class="theme-card" data-theme-id="royal">
+                        <div class="theme-preview royal-preview"></div>
+                        <span>Royal Purple</span>
+                    </div>
+                    <div class="theme-card" data-theme-id="ocean">
+                        <div class="theme-preview ocean-preview"></div>
+                        <span>Ocean Depth</span>
+                    </div>
+                    <div class="theme-card" data-theme-id="rosegold">
+                        <div class="theme-preview rosegold-preview"></div>
+                        <span>Rose Gold</span>
+                    </div>
+                    <div class="theme-card" data-theme-id="emerald">
+                        <div class="theme-preview emerald-preview"></div>
+                        <span>Emerald Night</span>
+                    </div>
+                    <div class="theme-card" data-theme-id="amber">
+                        <div class="theme-preview amber-preview"></div>
+                        <span>Amber Flame</span>
+                    </div>
+                    <div class="theme-card" data-theme-id="frost">
+                        <div class="theme-preview frost-preview"></div>
+                        <span>Frost Ice</span>
+                    </div>
+                    <div class="theme-card" data-theme-id="volcanic">
+                        <div class="theme-preview volcanic-preview"></div>
+                        <span>Volcanic</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Languages Section -->
+            <section id="languages" class="tab-content">
+                <h2 data-i18n="languagesTitle">Language Settings</h2>
+                <p class="section-desc" data-i18n="languagesDesc">We automatically detect your language, but you can
+                    force a specific one below.</p>
+
+                <div class="language-grid">
+                    <div class="lang-option active" data-lang="en">
+                        <span class="flag">🇺🇸</span>
+                        <span class="lang-name">English</span>
+                    </div>
+                    <div class="lang-option" data-lang="ar">
+                        <span class="flag">🇸🇦</span>
+                        <span class="lang-name">العربية</span>
+                    </div>
+                    <div class="lang-option" data-lang="de">
+                        <span class="flag">🇩🇪</span>
+                        <span class="lang-name">Deutsch</span>
+                    </div>
+                    <div class="lang-option" data-lang="fr">
+                        <span class="flag">🇫🇷</span>
+                        <span class="lang-name">Français</span>
+                    </div>
+                    <div class="lang-option" data-lang="ja">
+                        <span class="flag">🇯🇵</span>
+                        <span class="lang-name">日本語</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Support Section -->
+            <section id="support" class="tab-content">
+                <h2 data-i18n="supportTitle">Support & Feedback</h2>
+                <p class="section-desc" data-i18n="supportDesc">Found a bug or have a suggestion? Let us know.</p>
+
+                <form id="support-form">
+                    <div class="form-group">
+                        <label data-i18n="supportType">Type</label>
+                        <select id="support-type" class="glass-input">
+                            <option value="issue" data-i18n="typeIssue">Report an Issue</option>
+                            <option value="suggestion" data-i18n="typeSuggestion">Suggestion</option>
+                            <option value="other" data-i18n="typeOther">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="supportMessage">Message</label>
+                        <textarea id="support-msg" rows="5" class="glass-input"
+                            placeholder="Describe your issue or idea..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary" data-i18n="submitBtn">Send Feedback</button>
+                    <p class="success-msg hidden" id="support-success" data-i18n="supportSuccess">Thank you! Your
+                        feedback has been sent.</p>
+                </form>
+            </section>
+
+            <!-- FAQ Section -->
+            <section id="faq" class="tab-content">
+                <h2 data-i18n="faqTitle">Frequently Asked Questions</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <h3 data-i18n="faq1Q">What does this tool do?</h3>
+                        <p data-i18n="faq1A">It acts as a shortcut manager to quickly save and organize your favorite
+                            websites.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 data-i18n="faq2Q">Is it free?</h3>
+                        <p data-i18n="faq2A">Yes, the extension is completely free to use.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 data-i18n="faq3Q">Where is my data stored?</h3>
+                        <p data-i18n="faq3A">All data is stored locally on your device within your browser.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Can I add a custom image for a site?</h3>
+                        <p>Yes! When adding or editing a site, you can upload a custom icon image (PNG, JPG, SVG, or
+                            ICO, max 128KB).</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>How does visit tracking work?</h3>
+                        <p>Each time you open a saved site from the extension, its visit count increases. The most
+                            visited sites appear in the "Most Visited" section at the top.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>How does Fuzzy Search work?</h3>
+                        <p>Fuzzy search lets you find sites even if you misspell or only remember part of the name. It uses bigram matching and sequential character analysis to find the best matches.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>What are the keyboard shortcuts?</h3>
+                        <p>Ctrl+Shift+S (Cmd+Shift+S on Mac) to quick-save the current page. Ctrl+Shift+C (Cmd+Shift+C on Mac) to activate the Web Clipper on the current page.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>How does the Web Clipper work?</h3>
+                        <p>The Web Clipper lets you select text or images on any webpage and save them as clips. You can also right-click selected text and choose "Clip Selected Text" from the context menu.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 data-i18n="faq4Q">What are Quick Notes?</h3>
+                        <p data-i18n="faq4A">Quick Notes let you add a personal description or comment to any saved website. The note is displayed directly on the site card for easy reference.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>What are Smart Tags?</h3>
+                        <p>Tags let you label sites with multiple keywords (e.g., "Free", "AI", "Design"). When adding a site, the system suggests tags based on your existing ones. You can filter by tags to quickly find what you need.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>How does the Broken Link Checker work?</h3>
+                        <p>It automatically checks your saved sites every 6 hours for dead links. A red badge appears on the extension icon if broken links are found. You can also run manual checks from the Settings → Broken Links tab.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Donation Section -->
+            <section id="donation" class="tab-content">
+                <h2 data-i18n="donationTitle">Support Development</h2>
+                <div class="donation-card">
+                    <div class="donation-icon">☕</div>
+                    <p data-i18n="donationText">If you love this tool and want to support its development, consider buying me a coffee!</p>
+                    <a class="btn-donate coming-soon" id="donate-link">
+                        <span class="coffee-logo">☕</span>
+                        <span data-i18n="comingSoon">Coming Soon</span>
+                    </a>
+
+                    <div class="upcoming-features">
+                        <h3 data-i18n="upcomingFeaturesTitle">Upcoming Features</h3>
+                        <ul>
+                            <li><span class="redacted">Cloud Sync &amp; Backup</span></li>
+                            <li><span class="redacted">Automated category folders</span></li>
+                            <li><span class="redacted">Enhanced Web Clipper with PDF exports</span></li>
+                            <li><span class="redacted">Integrations with Notion &amp; Obsidian</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- What's New Section -->
+            <section id="whatsnew" class="tab-content">
+                <h2>🎉 What's New</h2>
+                <div class="whatsnew-hero">
+                    <div class="wn-version-badge">v5.5</div>
+                    <h3>Quick Notes, Smarter UI & Polish</h3>
+                    <p class="section-desc">July 2026</p>
+                </div>
+                <div class="whatsnew-list">
+                    <div class="whatsnew-item"><span class="wn-tag wn-new">NEW</span><div><h4>Quick Notes</h4><p>Add personal descriptions to saved websites.</p></div></div>
+                    <div class="whatsnew-item"><span class="wn-tag wn-improved">IMPROVED</span><div><h4>Smarter Interface</h4><p>Revamped card design with cleaner layout and better visual hierarchy.</p></div></div>
+                    <div class="whatsnew-item"><span class="wn-tag wn-improved">IMPROVED</span><div><h4>Performance Boost</h4><p>Faster rendering and reduced memory footprint.</p></div></div>
+                    <div class="whatsnew-item"><span class="wn-tag wn-improved">IMPROVED</span><div><h4>Full Language Support</h4><p>100% translation coverage across all 5 languages.</p></div></div>
+                    <div class="whatsnew-item"><span class="wn-tag wn-new">NEW</span><div><h4>Buy Me a Coffee</h4><p>Support the developer through Buy Me a Coffee.</p></div></div>
+                    <div class="whatsnew-item"><span class="wn-tag wn-removed">REMOVED</span><div><h4>AI Summarization</h4><p>Removed the AI summary feature to streamline the extension.</p></div></div>
+                </div>
+                <a href="whats_new.html" target="_blank" class="btn-primary" style="display:inline-block;text-decoration:none;margin-top:16px">View Full Changelog →</a>
+            </section>
+
+
+
+            <!-- Broken Links Section -->
+            <section id="broken-links" class="tab-content">
+                <h2>🔗 Broken Link Checker</h2>
+                <p class="section-desc">Monitor your saved sites for dead links. The checker runs automatically every 6 hours.</p>
+                <div class="setting-group">
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h3>Last Check</h3>
+                            <p id="last-link-check">Never</p>
+                        </div>
+                        <button class="btn-primary" id="run-link-check" style="font-size:0.75rem;padding:6px 14px">Run Check Now</button>
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <h3 style="margin-bottom:12px">⚠️ Broken Links</h3>
+                    <div id="broken-links-list" style="font-size:0.75rem;color:var(--text-secondary)">
+                        <p>No broken links detected. ✅</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="theme_manager.js"></script>
+    <script src="i18n.js"></script>
+    <script src="settings.js"></script>
+</body>
+
+</html>

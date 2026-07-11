@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capture Websites</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="themes.css">
+    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="popup-rtl.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Toast Container -->
+        <div class="toast-container" id="toast-container"></div>
+
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo-area">
+                <div class="logo-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="currentColor" />
+                    </svg>
+                </div>
+                <h1>Capture <span class="version-tag">v5.5</span></h1>
+            </div>
+            <div class="actions">
+                <button id="clips-btn" class="icon-btn" title="Web Clips">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
+                    </svg>
+                </button>
+
+                <button id="changelog-btn" class="icon-btn changelog-pulse" title="What's New">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                    </svg>
+                </button>
+                <button id="settings-btn" class="icon-btn" title="Settings">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+                        <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Stats Bar -->
+        <div class="stats-bar" id="stats-bar">
+            <div class="stat-chip" id="stat-total">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                </svg>
+                <span>Sites</span>
+                <span class="stat-value" id="stat-total-count">0</span>
+            </div>
+            <div class="stat-chip" id="stat-sections">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+                </svg>
+                <span>Sections</span>
+                <span class="stat-value" id="stat-section-count">0</span>
+            </div>
+            <div class="stat-chip" id="stat-categories">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="7" rx="1" />
+                    <rect x="14" y="3" width="7" height="7" rx="1" />
+                    <rect x="14" y="14" width="7" height="7" rx="1" />
+                    <rect x="3" y="14" width="7" height="7" rx="1" />
+                </svg>
+                <span>Categories</span>
+                <span class="stat-value" id="stat-cat-count">0</span>
+            </div>
+            <div class="stat-chip" id="stat-recent">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                </svg>
+                <span>Today</span>
+                <span class="stat-value" id="stat-today-count">0</span>
+            </div>
+        </div>
+
+        <!-- Top Visited Sites -->
+        <div class="top-sites-section hidden" id="top-sites-section">
+            <div class="top-sites-label">🔥 Most Visited</div>
+            <div class="top-sites-row" id="top-sites-row"></div>
+        </div>
+
+        <!-- Search & Filter -->
+        <div class="filter-section">
+            <div class="search-bar">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                    stroke-linecap="round" stroke-linejoin="round" class="search-icon">
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="m21 21-4.3-4.3" />
+                </svg>
+                <input type="text" id="search-input" placeholder="Search saved sites...">
+            </div>
+        </div>
+
+        <!-- Sections / Branches Navigation -->
+        <div class="sections-bar" id="sections-bar">
+            <div class="sections-scroll">
+                <button class="section-chip active" data-section="all" id="section-all-btn">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                    </svg>
+                    <span>All Sites</span>
+                </button>
+                <!-- Dynamic sections injected here -->
+            </div>
+            <button class="add-section-btn" id="add-section-btn" title="Add Section">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Breadcrumb for Branches -->
+        <div class="breadcrumb-bar hidden" id="breadcrumb-bar">
+            <button class="breadcrumb-item" id="breadcrumb-root">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                </svg>
+                <span>Root</span>
+            </button>
+            <span class="breadcrumb-sep">›</span>
+            <!-- Dynamic breadcrumbs injected here -->
+        </div>
+
+        <!-- Main Content Area -->
+        <main class="content-area" id="saved-sites-container">
+            <!-- Empty State -->
+            <div class="empty-state hidden">
+                <div class="empty-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+                        <line x1="10" y1="8" x2="16" y2="8" opacity="0.5" />
+                        <line x1="10" y1="12" x2="14" y2="12" opacity="0.3" />
+                    </svg>
+                </div>
+                <h3>No sites captured yet</h3>
+                <p>Tap the + button to save your first website shortcut.</p>
+            </div>
+
+            <!-- Branch Cards (Dynamic) -->
+            <div class="branches-grid" id="branches-grid"></div>
+
+            <!-- Grid of Cards (Dynamic) -->
+            <div class="grid-layout" id="sites-grid"></div>
+        </main>
+
+        <!-- FAB (Floating Action Button) -->
+        <button class="fab-btn" id="add-btn" title="Add Website">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+        </button>
+
+        <!-- Confirm Delete Overlay -->
+        <div class="confirm-overlay" id="confirm-overlay">
+            <div class="confirm-card">
+                <h3>Remove this shortcut?</h3>
+                <p>This action cannot be undone.</p>
+                <div class="confirm-actions">
+                    <button class="btn-text" id="confirm-cancel">Cancel</button>
+                    <button class="btn-danger" id="confirm-delete">Remove</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Modal -->
+        <div class="modal-overlay hidden" id="section-modal">
+            <div class="modal-card modal-card-sm">
+                <div class="modal-header">
+                    <h2 id="section-modal-title">New Section</h2>
+                    <button class="close-btn" id="section-modal-close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="section-form">
+                        <div class="form-group">
+                            <label for="section-name-input">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+                                </svg>
+                                Section Name
+                            </label>
+                            <input type="text" id="section-name-input" class="glass-input-field"
+                                placeholder="e.g. Work Projects" required maxlength="50">
+                        </div>
+                        <div class="form-group">
+                            <label for="section-icon-select">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+                                    <line x1="9" y1="9" x2="9.01" y2="9" />
+                                    <line x1="15" y1="9" x2="15.01" y2="9" />
+                                </svg>
+                                Icon
+                            </label>
+                            <div class="icon-picker" id="section-icon-picker">
+                                <button type="button" class="icon-pick active" data-icon="📁">📁</button>
+                                <button type="button" class="icon-pick" data-icon="💼">💼</button>
+                                <button type="button" class="icon-pick" data-icon="🎮">🎮</button>
+                                <button type="button" class="icon-pick" data-icon="📚">📚</button>
+                                <button type="button" class="icon-pick" data-icon="💻">💻</button>
+                                <button type="button" class="icon-pick" data-icon="🎨">🎨</button>
+                                <button type="button" class="icon-pick" data-icon="🛒">🛒</button>
+                                <button type="button" class="icon-pick" data-icon="📰">📰</button>
+                                <button type="button" class="icon-pick" data-icon="🎵">🎵</button>
+                                <button type="button" class="icon-pick" data-icon="⚽">⚽</button>
+                                <button type="button" class="icon-pick" data-icon="✈️">✈️</button>
+                                <button type="button" class="icon-pick" data-icon="❤️">❤️</button>
+                                <button type="button" class="icon-pick" data-icon="🔬">🔬</button>
+                                <button type="button" class="icon-pick" data-icon="💰">💰</button>
+                                <button type="button" class="icon-pick" data-icon="🏠">🏠</button>
+                                <button type="button" class="icon-pick" data-icon="⭐">⭐</button>
+                            </div>
+                        </div>
+                        <div class="modal-actions">
+                            <button type="button" class="btn-text" id="section-modal-cancel">Cancel</button>
+                            <button type="submit" class="btn-primary-small" id="section-modal-save">Create</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Adding/Editing -->
+    <div class="modal-overlay hidden" id="item-modal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h2 id="modal-title">Add Website</h2>
+                <button class="close-btn" id="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="website-form">
+                    <div class="form-group">
+                        <label for="url-input">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                            </svg>
+                            Website URL
+                        </label>
+                        <input type="url" id="url-input" class="glass-input-field" placeholder="https://example.com"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name-input">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 7V4h16v3" />
+                                <path d="M9 20h6" />
+                                <path d="M12 4v16" />
+                            </svg>
+                            Site Name
+                        </label>
+                        <input type="text" id="name-input" class="glass-input-field" placeholder="My Cool Site" required
+                            maxlength="200">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group form-group-half">
+                            <label for="category-input">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path
+                                        d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" />
+                                    <line x1="7" y1="7" x2="7.01" y2="7" />
+                                </svg>
+                                Category
+                            </label>
+                            <div class="category-wrapper">
+                                <input type="text" id="category-input" class="glass-input-field"
+                                    placeholder="e.g. Work" list="category-suggestions" maxlength="100">
+                                <datalist id="category-suggestions">
+                                    <!-- Existing categories populate here -->
+                                </datalist>
+                            </div>
+                        </div>
+                        <div class="form-group form-group-half">
+                            <label for="section-select">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+                                </svg>
+                                Section
+                            </label>
+                            <select id="section-select" class="glass-input-field glass-select">
+                                <option value="">None</option>
+                                <!-- Dynamic sections -->
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Smart Tags -->
+                    <div class="form-group">
+                        <label for="tags-input">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+                                <line x1="7" y1="7" x2="7.01" y2="7"/>
+                            </svg>
+                            Tags <span class="label-hint">(comma separated)</span>
+                        </label>
+                        <input type="text" id="tags-input" class="glass-input-field" placeholder="e.g. Free, AI, Design" maxlength="200">
+                    <!-- Quick Note -->
+                    <div class="form-group">
+                        <label for="note-input">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                            </svg>
+                            <span data-i18n="lblNote">Quick Note</span> <span class="label-hint" data-i18n="noteHint">(optional)</span>
+                        </label>
+                        <textarea id="note-input" class="glass-input-field glass-textarea" data-i18n-placeholder="notePlaceholder" placeholder="Add a description or note about this website..." maxlength="500" rows="3"></textarea>
+                    </div>
+
+                    </div>
+
+                    <!-- Custom Image Upload -->
+                    <div class="image-upload-section">
+                        <div class="image-upload-label">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                <circle cx="8.5" cy="8.5" r="1.5" />
+                                <polyline points="21 15 16 10 5 21" />
+                            </svg>
+                            Custom Icon (Optional)
+                        </div>
+                        <div class="image-upload-area">
+                            <div class="image-preview-box" id="image-preview-box" title="Click to upload image">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5" id="image-placeholder-icon">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                                <img id="image-preview-img" src="" alt="preview" style="display: none;">
+                            </div>
+                            <div class="image-upload-controls">
+                                <button type="button" class="upload-btn" id="upload-image-btn">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                        <polyline points="17 8 12 3 7 8" />
+                                        <line x1="12" y1="3" x2="12" y2="15" />
+                                    </svg>
+                                    Upload
+                                </button>
+                                <button type="button" class="remove-image-btn" id="remove-image-btn">
+                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <line x1="18" y1="6" x2="6" y2="18" />
+                                        <line x1="6" y1="6" x2="18" y2="18" />
+                                    </svg>
+                                    Remove
+                                </button>
+                                <span class="upload-hint">PNG, JPG, SVG • Max 128KB</span>
+                            </div>
+                        </div>
+                        <input type="file" id="image-file-input" accept="image/*" style="display: none;">
+                    </div>
+
+                    <div class="modal-actions">
+                        <button type="button" class="btn-text" id="modal-cancel">Cancel</button>
+                        <button type="submit" class="btn-primary-small" id="modal-save">
+                            Save It
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Clips Panel -->
+    <div class="modal-overlay hidden" id="clips-panel">
+        <div class="modal-card modal-card-changelog">
+            <div class="modal-header">
+                <h2>✂️ Web Clips</h2>
+                <button class="close-btn" id="clips-panel-close">&times;</button>
+            </div>
+            <div class="modal-body" id="clips-list" style="max-height:380px;overflow-y:auto"></div>
+        </div>
+    </div>
+
+
+
+    <!-- Archive Viewer -->
+    <div class="modal-overlay hidden" id="archive-viewer">
+        <div class="modal-card modal-card-changelog">
+            <div class="modal-header">
+                <h2>📖 Offline Archive</h2>
+                <button class="close-btn" id="archive-viewer-close">&times;</button>
+            </div>
+            <div class="modal-body" id="archive-content" style="max-height:380px;overflow-y:auto;font-size:0.68rem;line-height:1.6;white-space:pre-wrap;color:var(--text-secondary)"></div>
+        </div>
+    </div>
+
+    <!-- Changelog Modal -->
+    <div class="modal-overlay hidden" id="changelog-modal">
+        <div class="modal-card modal-card-changelog">
+            <div class="modal-header">
+                <h2>🎉 What's New in v5.5</h2>
+                <button class="close-btn" id="changelog-close">&times;</button>
+            </div>
+            <div class="modal-body changelog-body">
+                <div class="changelog-version">
+                    <div class="changelog-badge">Latest</div>
+                    <h3 class="changelog-ver-title">Version 5.5 — Quick Notes & Polish</h3>
+                    <p class="changelog-date">July 2026</p>
+                </div>
+                <div class="changelog-items">
+                    <div class="changelog-item new"><div class="changelog-tag tag-new">NEW</div><div class="changelog-detail"><h4>Quick Notes</h4><p>Add personal descriptions to saved websites.</p></div></div>
+                    <div class="changelog-item improved"><div class="changelog-tag tag-improved">IMPROVED</div><div class="changelog-detail"><h4>Smarter Interface</h4><p>Revamped card design with cleaner layout and better visual hierarchy.</p></div></div>
+                    <div class="changelog-item improved"><div class="changelog-tag tag-improved">IMPROVED</div><div class="changelog-detail"><h4>Performance Boost</h4><p>Faster rendering, reduced memory footprint, and snappier interactions.</p></div></div>
+                    <div class="changelog-item improved"><div class="changelog-tag tag-improved">IMPROVED</div><div class="changelog-detail"><h4>Full Language Support</h4><p>100% translation coverage across all 5 languages with zero gaps.</p></div></div>
+                    <div class="changelog-item new"><div class="changelog-tag tag-new">NEW</div><div class="changelog-detail"><h4>Buy Me a Coffee</h4><p>Support the developer through Buy Me a Coffee donations.</p></div></div>
+                    <div class="changelog-item removed"><div class="changelog-tag tag-removed">REMOVED</div><div class="changelog-detail"><h4>AI Summarization</h4><p>Removed the AI summary feature to streamline the extension.</p></div></div>
+                </div>
+                <div class="changelog-prev">
+                    <h3 class="changelog-ver-title">Version 5.4</h3>
+                    <ul class="changelog-list">
+                        <li>Fuzzy Search</li><li>Global Hotkeys</li><li>Smart Tags</li><li>Web Clipper</li><li>Offline Archiving</li><li>Broken Link Checker</li>
+                    </ul>
+                </div>
+                <button class="btn-primary-small changelog-dismiss" id="changelog-dismiss">Got it!</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="theme_manager.js"></script>
+    <script src="categorizer.js"></script>
+    <script src="popup.js"></script>
+</body>
+
+</html>

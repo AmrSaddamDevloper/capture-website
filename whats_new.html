@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What's New - Capture Websites</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="themes.css">
+    <link rel="stylesheet" href="whats_new.css">
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="container">
+        <div class="content-card glass-panel">
+            <!-- Header -->
+            <div class="wn-header">
+                <div class="wn-logo">
+                    <div class="logo-icon-box">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="currentColor" />
+                        </svg>
+                    </div>
+                    <span>Capture Websites</span>
+                </div>
+                <div class="wn-badge">What's New</div>
+            </div>
+
+            <!-- Current Version -->
+            <div class="version-hero">
+                <h1>Version 5.5</h1>
+                <p class="version-subtitle">Quick Notes, Buy Me a Coffee &amp; UI Polish</p>
+                <p class="version-date">July 2026</p>
+            </div>
+
+            <!-- Feature Cards -->
+            <div class="features-grid">
+                <div class="feature-card feature-new">
+                    <div class="feature-icon">📝</div>
+                    <div class="feature-badge badge-new">NEW</div>
+                    <h3>Quick Notes</h3>
+                    <p>Add personal descriptions or comments to any saved website directly from the capture popup. View descriptions inline on your saved list cards.</p>
+                </div>
+
+                <div class="feature-card feature-new">
+                    <div class="feature-icon">☕</div>
+                    <div class="feature-badge badge-new">NEW</div>
+                    <h3>Buy Me a Coffee</h3>
+                    <p>Want to support development? We've integrated a Buy Me a Coffee button to support the developer. Feel free to link your own!</p>
+                </div>
+
+                <div class="feature-card feature-improved">
+                    <div class="feature-icon">✨</div>
+                    <div class="feature-badge badge-improved">IMPROVED</div>
+                    <h3>Smarter UI &amp; Polish</h3>
+                    <p>Revamped layout of the saved items card. Enhanced spacing, card alignment, and general visual responsiveness for a cleaner experience.</p>
+                </div>
+
+                <div class="feature-card feature-improved">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-badge badge-improved">IMPROVED</div>
+                    <h3>Speed &amp; Performance</h3>
+                    <p>Streamlined bundle size by completely removing the AI summarization features. Popup loading and search queries are now faster than ever.</p>
+                </div>
+
+                <div class="feature-card feature-improved">
+                    <div class="feature-icon">🌐</div>
+                    <div class="feature-badge badge-improved">IMPROVED</div>
+                    <h3>Zero Translation Gaps</h3>
+                    <p>Every corner of the extension, settings page, and onboarding guide is now 100% translated in English, Arabic, German, French, and Japanese.</p>
+                </div>
+            </div>
+
+            <!-- Previous Versions -->
+            <div class="prev-versions">
+                <h2>Previous Versions</h2>
+
+                <div class="prev-version">
+                    <div class="prev-header">
+                        <h3>Version 5.4</h3>
+                        <span class="prev-date">May 2026</span>
+                    </div>
+                    <ul>
+                        <li>Fuzzy Search with sequential char analysis and bigram matching</li>
+                        <li>Global hotkeys (Ctrl+Shift+S / Ctrl+Shift+C)</li>
+                        <li>Smart tags with comma-separated tag pills</li>
+                        <li>Web Clipper toolbar for saving text and images</li>
+                        <li>Offline Archiving of page text reader mode</li>
+                        <li>Broken Link Checker running background audits</li>
+                    </ul>
+                </div>
+
+                <div class="prev-version">
+                    <div class="prev-header">
+                        <h3>Version 5.2</h3>
+                        <span class="prev-date">February 2026</span>
+                    </div>
+                    <ul>
+                        <li>Custom icon uploads for saved sites (PNG, JPG, SVG, ICO)</li>
+                        <li>Visit tracking with Most Visited section</li>
+                        <li>12 premium color themes</li>
+                        <li>Context menu quick capture</li>
+                        <li>Multi-language support (EN, AR, DE, FR, JA)</li>
+                        <li>Statistics dashboard</li>
+                        <li>Remember last category preference</li>
+                    </ul>
+                </div>
+
+                <div class="prev-version">
+                    <div class="prev-header">
+                        <h3>Version 5.0 — 5.1</h3>
+                        <span class="prev-date">January 2026</span>
+                    </div>
+                    <ul>
+                        <li>Initial release with glassmorphism design</li>
+                        <li>Category-based organization</li>
+                        <li>Search and filter functionality</li>
+                        <li>Settings page with themes</li>
+                        <li>Welcome onboarding experience</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="wn-footer">
+                <p>Thank you for using Capture Websites! ❤️</p>
+                <button class="btn-primary" id="btn-close">Close</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="theme_manager.js"></script>
+    <script>
+        document.getElementById('btn-close').addEventListener('click', () => {
+            window.close();
+        });
+    </script>
+</body>
+
+</html>

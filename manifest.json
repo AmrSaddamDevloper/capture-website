@@ -1,0 +1,50 @@
+{
+    "manifest_version": 3,
+    "name": "Capture Websites",
+    "version": "5.5",
+    "description": "Capture, organize, clip, and archive your favorite websites with smart tags, quick notes, visual bookmarks, and offline reader mode.",
+    "permissions": [
+        "storage",
+        "tabs",
+        "contextMenus",
+        "activeTab",
+        "alarms",
+        "scripting"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "options_ui": {
+        "page": "settings.html",
+        "open_in_tab": true
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["content_script.js"],
+            "run_at": "document_idle"
+        }
+    ],
+    "commands": {
+        "quick-save": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+S",
+                "mac": "Command+Shift+S"
+            },
+            "description": "Quick-save the current website"
+        },
+        "activate-clipper": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+C",
+                "mac": "Command+Shift+C"
+            },
+            "description": "Activate Web Clipper on the current page"
+        }
+    }
+}
