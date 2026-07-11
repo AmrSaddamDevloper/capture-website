@@ -131,12 +131,82 @@ document.addEventListener('DOMContentLoaded', () => {
     if (supportForm) {
         supportForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const msg = document.getElementById('support-success');
-            msg.classList.remove('hidden');
-            supportForm.reset();
-            setTimeout(() => {
-                msg.classList.add('hidden');
-            }, 3000);
+            
+            const type = document.getElementById('support-type').value;
+            const email = document.getElementById('support-email').value;
+            const message = document.getElementById('support-msg').value;
+            const successMsg = document.getElementById('support-success');
+            const submitBtn = supportForm.querySelector('button[type="submit"]');
+            
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = '⏳ Sending...';
+
+                // Submit to FormSubmit.co via AJAX
+                fetch('https://formsubmit.co/ajax/learn.is.the.best.lets.do.it@gmail.com', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        Type: type,
+                        Email: email || 'Anonymous (Not Provided)',
+                        Message: message,
+                        _subject: `Capture Extension Support: [${type.toUpperCase()}]`
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Reset styling in case of previous error
+                    successMsg.style.color = '';
+                    
+                    // Set localized success text
+                    let successText = 'Thank you! Your feedback has been sent.';
+                    if (typeof translations !== 'undefined') {
+                        const activeLangOpt = document.querySelector('.lang-option.active');
+                        const lang = activeLangOpt ? activeLangOpt.getAttribute('data-lang') : 'en';
+                        if (translations[lang] && translations[lang].supportSuccess) {
+                            successText = translations[lang].supportSuccess;
+                        }
+                    }
+                    successMsg.textContent = successText;
+                    successMsg.classList.remove('hidden');
+                    
+                    supportForm.reset();
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
+                    
+                    setTimeout(() => {
+                        successMsg.classList.add('hidden');
+                    }, 4000);
+                })
+                .catch(error => {
+                    console.error('Error sending feedback:', error);
+                    
+                    // Set localized error text
+                    let errorText = 'Failed to send feedback. Please try again.';
+                    if (typeof translations !== 'undefined') {
+                        const activeLangOpt = document.querySelector('.lang-option.active');
+                        const lang = activeLangOpt ? activeLangOpt.getAttribute('data-lang') : 'en';
+                        if (translations[lang] && translations[lang].supportError) {
+                            errorText = translations[lang].supportError;
+                        }
+                    }
+                    successMsg.textContent = errorText;
+                    successMsg.style.color = '#ef4444';
+                    successMsg.classList.remove('hidden');
+                    
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
+                    
+                    setTimeout(() => {
+                        successMsg.classList.add('hidden');
+                        successMsg.style.color = '';
+                    }, 5000);
+                });
+            }
         });
     }
 
